@@ -9,8 +9,15 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  dynamic size,height,width;
+
   @override
   Widget build(BuildContext context) {
+
+    // getting the size of the window
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -20,42 +27,42 @@ class _homeState extends State<home> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(height / 40),
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 100, bottom: 10),
+                padding: EdgeInsets.only(left: width / 40, right: width / 40, top: height / 5, bottom: height / 70),
                 child:Image.asset(
                   'assets/images/FLASH Logo.png',
-                  height: 150,
-                  width: 427,
+                  height: height / 5,
+                  width: width,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 80, bottom: 0),
+                padding: EdgeInsets.only(left: width / 40, right: width / 40, top: height / 10, bottom: 0),
                 child: SizedBox(
-                  width: 200,
-                  height: 60,
+                  width: width / 2,
+                  height: height / 10,
                   child: TextButton(
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.lightBlue.shade100,
                     ),
                     onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> newFlight()));},
-                    child: const Text('New Flight!', style: TextStyle(fontSize: 20),),
+                    child: Text('New Flight!', style: TextStyle(fontSize: height / 35),),
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 0),
+                padding:  EdgeInsets.only(left: width / 40, right: width / 40, top: 0, bottom: 0),
                 child: SizedBox(
-                  width: 200,
-                  height: 60,
+                  width: width / 2,
+                  height: height / 10,
                   child: TextButton(
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.lightBlue.shade100,
                     ),
                     onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> options()));},
-                    child: const Text('Options', style: TextStyle(fontSize: 20),),
+                    child: Text('Options', style: TextStyle(fontSize: height / 35),),
                   ),
                 ),
               ),
