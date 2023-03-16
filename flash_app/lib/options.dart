@@ -6,6 +6,12 @@ import 'options.dart';
 bool click = true;
 List<Color> colors = [Colors.red, Colors.orange, Colors.yellow, Colors.green, Colors.blue, Colors.indigo, Colors.purple, Colors.pink];
 int colorIndex = 0;
+bool compassChecked = true;
+bool yawChecked = true;
+bool pitchChecked = true;
+bool angleChecked = true;
+bool altChecked = true;
+bool velChecked = true;
 
 class options extends StatefulWidget {
   @override
@@ -15,7 +21,6 @@ class options extends StatefulWidget {
 class _options extends State<options> {
   double _opacity = 50;
   double _uiSize = 50;
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +42,15 @@ class _options extends State<options> {
         appBar: AppBar(
           backgroundColor: colors[colorIndex],
           centerTitle: true,
-          title: Text("Options"),
+          title: Text(
+            "Options",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
         ),
         backgroundColor: Colors.white,
-        body: Column(
+        body: ListView(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +65,7 @@ class _options extends State<options> {
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 50,
+                    top: 20,
                     bottom: 20,
                   ),
                   decoration: BoxDecoration(
@@ -64,7 +74,11 @@ class _options extends State<options> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Text("Color: ",
-                      style: TextStyle(fontSize: 15)),
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -75,8 +89,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top: 10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -107,8 +121,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -139,8 +153,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -171,8 +185,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -208,8 +222,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -240,8 +254,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -272,8 +286,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -304,8 +318,8 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top: 10,
-                    bottom: 30,
+                    top: 0,
+                    bottom: 10,
                   ),
                   child: SizedBox(
                     width: 40,
@@ -356,7 +370,11 @@ class _options extends State<options> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Text("Compass: ",
-                      style: TextStyle(fontSize: 15)),
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                      ),
+                  ),
                 ),
                 Transform.scale(
                     scale: 2,
@@ -365,10 +383,240 @@ class _options extends State<options> {
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
-                        value: isChecked,
+                        value: compassChecked,
                         onChanged: (bool? value) {
                           setState(() {
-                            isChecked = value!;
+                            compassChecked = value!;
+                          });
+                        },
+                      ),
+                    )
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 50,
+                    right: 50,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  margin: const EdgeInsets.only(
+                    left: 20,
+                    right: 10,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: colors[colorIndex],
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text("Yaw: ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Transform.scale(
+                    scale: 2,
+                    child: SizedBox(
+                      width: 100.0,
+                      child: Checkbox(
+                        checkColor: Colors.white,
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: yawChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            yawChecked = value!;
+                          });
+                        },
+                      ),
+                    )
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 50,
+                    right: 50,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  margin: const EdgeInsets.only(
+                    left: 20,
+                    right: 10,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: colors[colorIndex],
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text("Pitch: ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Transform.scale(
+                    scale: 2,
+                    child: SizedBox(
+                      width: 100.0,
+                      child: Checkbox(
+                        checkColor: Colors.white,
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: pitchChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            pitchChecked = value!;
+                          });
+                        },
+                      ),
+                    )
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 50,
+                    right: 50,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  margin: const EdgeInsets.only(
+                    left: 20,
+                    right: 10,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: colors[colorIndex],
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text("Angle of Attack: ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Transform.scale(
+                    scale: 2,
+                    child: SizedBox(
+                      width: 100.0,
+                      child: Checkbox(
+                        checkColor: Colors.white,
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: angleChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            angleChecked = value!;
+                          });
+                        },
+                      ),
+                    )
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 50,
+                    right: 50,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  margin: const EdgeInsets.only(
+                    left: 20,
+                    right: 10,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: colors[colorIndex],
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text("Altitude: ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Transform.scale(
+                    scale: 2,
+                    child: SizedBox(
+                      width: 100.0,
+                      child: Checkbox(
+                        checkColor: Colors.white,
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: altChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            altChecked = value!;
+                          });
+                        },
+                      ),
+                    )
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    left: 50,
+                    right: 50,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  margin: const EdgeInsets.only(
+                    left: 20,
+                    right: 10,
+                    top: 20,
+                    bottom: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: colors[colorIndex],
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Text("Velocity: ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Transform.scale(
+                    scale: 2,
+                    child: SizedBox(
+                      width: 100.0,
+                      child: Checkbox(
+                        checkColor: Colors.white,
+                        fillColor: MaterialStateProperty.resolveWith(getColor),
+                        value: velChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            velChecked = value!;
                           });
                         },
                       ),
@@ -405,7 +653,23 @@ class _options extends State<options> {
                     ElevatedButton(onPressed: () {
                       Navigator.pop(context);
                     },
-                      child: Text("Go back"),
+                      child: Text(
+                          "Go back",
+                        style: TextStyle(
+                            color: Colors.black,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: colors[colorIndex],
+                        side: const BorderSide(
+                            width: 1,
+                            color: Colors.black
+                        ),
+                        elevation: 10,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                     ),
                   ],
                 ),
