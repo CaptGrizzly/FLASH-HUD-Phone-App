@@ -57,10 +57,10 @@ class _options extends State<options> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 10,
-                    bottom: 10,
+                    left: 40,
+                    right: 40,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
@@ -353,16 +353,16 @@ class _options extends State<options> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 10,
-                    bottom: 10,
+                    left: 37,
+                    right: 37,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 20,
-                    bottom: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
@@ -377,7 +377,7 @@ class _options extends State<options> {
                   ),
                 ),
                 Transform.scale(
-                    scale: 2,
+                    scale: 1.75,
                     child: SizedBox(
                       width: 100.0,
                       child: Checkbox(
@@ -399,16 +399,16 @@ class _options extends State<options> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 10,
-                    bottom: 10,
+                    left: 55,
+                    right: 55,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 20,
-                    bottom: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
@@ -423,7 +423,7 @@ class _options extends State<options> {
                   ),
                 ),
                 Transform.scale(
-                    scale: 2,
+                    scale: 1.75,
                     child: SizedBox(
                       width: 100.0,
                       child: Checkbox(
@@ -447,14 +447,14 @@ class _options extends State<options> {
                   padding: const EdgeInsets.only(
                     left: 50,
                     right: 50,
-                    top: 10,
-                    bottom: 10,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 20,
-                    bottom: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
@@ -469,7 +469,7 @@ class _options extends State<options> {
                   ),
                 ),
                 Transform.scale(
-                    scale: 2,
+                    scale: 1.75,
                     child: SizedBox(
                       width: 100.0,
                       child: Checkbox(
@@ -491,16 +491,16 @@ class _options extends State<options> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 10,
-                    bottom: 10,
+                    left: 15,
+                    right: 15,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 20,
-                    bottom: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
@@ -515,7 +515,7 @@ class _options extends State<options> {
                   ),
                 ),
                 Transform.scale(
-                    scale: 2,
+                    scale: 1.75,
                     child: SizedBox(
                       width: 100.0,
                       child: Checkbox(
@@ -537,16 +537,16 @@ class _options extends State<options> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 10,
-                    bottom: 10,
+                    left: 40,
+                    right: 40,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 20,
-                    bottom: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
@@ -561,7 +561,7 @@ class _options extends State<options> {
                   ),
                 ),
                 Transform.scale(
-                    scale: 2,
+                    scale: 1.75,
                     child: SizedBox(
                       width: 100.0,
                       child: Checkbox(
@@ -583,16 +583,16 @@ class _options extends State<options> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 10,
-                    bottom: 10,
+                    left: 40,
+                    right: 40,
+                    top: 5,
+                    bottom: 5,
                   ),
                   margin: const EdgeInsets.only(
                     left: 20,
                     right: 10,
-                    top: 20,
-                    bottom: 20,
+                    top: 10,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
@@ -607,7 +607,7 @@ class _options extends State<options> {
                   ),
                 ),
                 Transform.scale(
-                    scale: 2,
+                    scale: 1.75,
                     child: SizedBox(
                       width: 100.0,
                       child: Checkbox(
@@ -625,31 +625,10 @@ class _options extends State<options> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               child: Container(
                 child: Column(
                   children: [
-                    Slider(
-                      min: 0,
-                      max: 100,
-                      label: "Opacity",
-                      value: _opacity,
-                      onChanged: (value) {
-                        setState(() {
-                          _opacity = value;
-                        });
-                      },
-                    ),
-                    Slider(
-                      min: 0,
-                      max: 100,
-                      value: _uiSize,
-                      onChanged: (value) {
-                        setState(() {
-                          _uiSize = value;
-                        });
-                      },
-                    ),
                     ElevatedButton(onPressed: () {
                       Navigator.pop(context);
                     },
