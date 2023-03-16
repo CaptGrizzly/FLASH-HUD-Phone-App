@@ -27,7 +27,11 @@ class _homeState extends State<home> {
           ),
         ),
         child: Padding(
+<<<<<<< HEAD
           padding: EdgeInsets.all(height / 40),
+=======
+          padding: const EdgeInsets.all(20),
+>>>>>>> 97b9a03b52385210e835b77a5ecffab93f4bb83e
           child: Column(
             children: [
               Padding(

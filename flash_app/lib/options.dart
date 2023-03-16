@@ -50,6 +50,7 @@ class _options extends State<options> {
         child: Column(
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   padding: const EdgeInsets.only(
@@ -65,7 +66,7 @@ class _options extends State<options> {
                     bottom: 20,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.lightBlue,
+                    color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -75,12 +76,13 @@ class _options extends State<options> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 10,
                     right: 10,
-                    top:10,
+                    top: 10,
                     bottom: 30,
                   ),
                   child: SizedBox(
@@ -207,6 +209,7 @@ class _options extends State<options> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
@@ -339,6 +342,7 @@ class _options extends State<options> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   padding: const EdgeInsets.only(
@@ -354,7 +358,7 @@ class _options extends State<options> {
                     bottom: 20,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.lightBlue,
+                    color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -409,7 +413,7 @@ class _options extends State<options> {
                       Navigator.pop(context);
                     },
                       child: Text("Go back"),
-                    )
+                    ),
                   ],
                 ),
               ),
