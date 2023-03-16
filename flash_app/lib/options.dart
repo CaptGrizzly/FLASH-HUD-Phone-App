@@ -40,7 +40,14 @@ class _options extends State<options> {
           title: Text("Options"),
         ),
         backgroundColor: Colors.white,
-        body: Column(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+            image: AssetImage("assets/images/night.jfif"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
           children: <Widget>[
             Row(
               children: [
@@ -410,6 +417,7 @@ class _options extends State<options> {
           ],
         ),
       ),
+    ),
     );
   }
 }
