@@ -12,6 +12,7 @@ bool pitchChecked = true;
 bool angleChecked = true;
 bool altChecked = true;
 bool velChecked = true;
+Color TextColor = Colors.black;
 
 class options extends StatefulWidget {
   @override
@@ -37,6 +38,7 @@ class _options extends State<options> {
     }
 
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
