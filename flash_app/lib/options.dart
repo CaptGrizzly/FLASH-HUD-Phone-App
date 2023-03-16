@@ -39,7 +39,6 @@ class _options extends State<options> {
           centerTitle: true,
           title: Text("Options"),
         ),
-        backgroundColor: Colors.white,
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -388,27 +387,6 @@ class _options extends State<options> {
               child: Container(
                 child: Column(
                   children: [
-                    Slider(
-                      min: 0,
-                      max: 100,
-                      label: "Opacity",
-                      value: _opacity,
-                      onChanged: (value) {
-                        setState(() {
-                          _opacity = value;
-                        });
-                      },
-                    ),
-                    Slider(
-                      min: 0,
-                      max: 100,
-                      value: _uiSize,
-                      onChanged: (value) {
-                        setState(() {
-                          _uiSize = value;
-                        });
-                      },
-                    ),
                     ElevatedButton(onPressed: () {
                       Navigator.pop(context);
                     },
