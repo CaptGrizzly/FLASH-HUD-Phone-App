@@ -49,7 +49,6 @@ class _options extends State<options> {
             ),
           ),
         ),
-<<<<<<< HEAD
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -58,10 +57,6 @@ class _options extends State<options> {
           ),
         ),
         child: Column(
-=======
-        backgroundColor: Colors.white,
-        body: ListView(
->>>>>>> 6b66fdb3fbc3e14e30b954f034cb017c7e33768b
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
