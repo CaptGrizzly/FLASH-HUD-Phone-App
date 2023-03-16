@@ -20,7 +20,7 @@ class _homeState extends State<home> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               Padding(
