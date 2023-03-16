@@ -12,7 +12,6 @@ bool pitchChecked = true;
 bool angleChecked = true;
 bool altChecked = true;
 bool velChecked = true;
-Color TextColor = Colors.black;
 
 class options extends StatefulWidget {
   @override
