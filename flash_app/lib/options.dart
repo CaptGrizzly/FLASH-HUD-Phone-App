@@ -50,8 +50,14 @@ class _options extends State<options> {
             ),
           ),
         ),
-        backgroundColor: Colors.white,
-        body: ListView(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+            image: AssetImage("assets/images/night.jfif"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -658,6 +664,7 @@ class _options extends State<options> {
           ],
         ),
       ),
+    ),
     );
   }
 }
