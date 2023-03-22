@@ -4,7 +4,7 @@ import 'home.dart';
 import 'options.dart';
 
 bool click = true;
-List<Color> colors = [Colors.red, Colors.orange, Colors.yellow, Colors.green, Colors.blue, Colors.indigo, Colors.purple, Colors.pink];
+List<Color> colors = [Colors.red, Colors.orange, Colors.yellow, Colors.green, Colors.blue, Colors.purple, Colors.grey, Colors.brown];
 int colorIndex = 0;
 bool compassChecked = true;
 bool yawChecked = true;
@@ -19,21 +19,41 @@ class options extends StatefulWidget {
 }
 
 class _options extends State<options> {
-  double _opacity = 50;
-  double _uiSize = 50;
+  dynamic size,height,width;
+  dynamic sh, mh, lh, sw, mw, lw;
 
   @override
   Widget build(BuildContext context) {
+
+    // getting the size of the window
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
+    sh = height / 70;
+    mh = height / 40;
+    lh = height / 10;
+    sw = width / 40;
+    mw = width / 10;
+    lw = width / 3;
+
     Color getColor(Set<MaterialState> states) {
-      const Set<MaterialState> interactiveStates = <MaterialState>{
+      Set<MaterialState> interactiveStates = <MaterialState>{
         MaterialState.pressed,
         MaterialState.hovered,
         MaterialState.focused,
       };
       if (states.any(interactiveStates.contains)) {
-        return Colors.green;
+        if (colorIndex < 3) {
+          return colors[colorIndex + 3];
+        } else if (colorIndex < 6) {
+          return colors[colorIndex - 3];
+        } else if (colorIndex == 6) {
+          return colors[7];
+        } else {
+          return colors[6];
+        }
       }
-      return Colors.red;
+      return colors[colorIndex];
     }
 
     return MaterialApp(
@@ -42,7 +62,7 @@ class _options extends State<options> {
         appBar: AppBar(
           backgroundColor: colors[colorIndex],
           centerTitle: true,
-          title: Text(
+          title: const Text(
             "Options",
             style: TextStyle(
               color: Colors.black,
@@ -62,26 +82,26 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 40,
-                    right: 40,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw * 2,
+                    right: mw * 2,
+                    top: sh,
+                    bottom: sh,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 20,
-                    bottom: 20,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: 0,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Color: ",
+                  child: Text("Color: ",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: sh * 2,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -92,15 +112,15 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -109,7 +129,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+                        backgroundColor: colors[0],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -124,15 +144,15 @@ class _options extends State<options> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -141,7 +161,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange,
+                        backgroundColor: colors[1],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -156,15 +176,15 @@ class _options extends State<options> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -173,7 +193,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: colors[2],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -188,15 +208,15 @@ class _options extends State<options> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -205,7 +225,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
+                        backgroundColor: colors[3],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -225,15 +245,15 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -242,7 +262,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: colors[4],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -257,15 +277,15 @@ class _options extends State<options> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -274,7 +294,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.indigo,
+                        backgroundColor: colors[5],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -289,15 +309,15 @@ class _options extends State<options> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -306,7 +326,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.purple,
+                        backgroundColor: colors[6],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -321,15 +341,15 @@ class _options extends State<options> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    right: 10,
-                    top: 0,
-                    bottom: 10,
+                  padding: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh,
+                    bottom: sh,
                   ),
                   child: SizedBox(
-                    width: 40,
-                    height: 40,
+                    width: mh * 3,
+                    height: mh * 3,
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {
@@ -338,7 +358,7 @@ class _options extends State<options> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.pink,
+                        backgroundColor: colors[7],
                         side: const BorderSide(
                             width: 1,
                             color: Colors.black
@@ -358,34 +378,34 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 37,
-                    right: 37,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw,
+                    right: mw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 10,
-                    bottom: 10,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Compass: ",
+                  child: Text("Compass: ",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: sh * 1.75,
                           fontWeight: FontWeight.bold,
                       ),
                   ),
                 ),
                 Transform.scale(
-                    scale: 1.75,
+                    scale: sh / 5,
                     child: SizedBox(
-                      width: 100.0,
+                      width: mw,
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
@@ -404,34 +424,34 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 55,
-                    right: 55,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw,
+                    right: mw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 10,
-                    bottom: 10,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Yaw: ",
+                  child: Text("Yaw: ",
                     style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontSize: sh * 1.75,
+                          fontWeight: FontWeight.bold,
+                      ),
                   ),
                 ),
                 Transform.scale(
-                    scale: 1.75,
+                    scale: sh / 5,
                     child: SizedBox(
-                      width: 100.0,
+                      width: mw,
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
@@ -450,34 +470,34 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 50,
-                    right: 50,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw,
+                    right: mw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 10,
-                    bottom: 10,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Pitch: ",
+                  child: Text("Pitch: ",
                     style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontSize: sh * 1.75,
+                          fontWeight: FontWeight.bold,
+                      ),
                   ),
                 ),
                 Transform.scale(
-                    scale: 1.75,
+                    scale: sh / 5,
                     child: SizedBox(
-                      width: 100.0,
+                      width: mw,
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
@@ -496,34 +516,34 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 15,
-                    right: 15,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw,
+                    right: mw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 10,
-                    bottom: 10,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Angle of Attack: ",
+                  child: Text("Angle of Attack: ",
                     style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontSize: sh * 1.75,
+                          fontWeight: FontWeight.bold,
+                      ),
                   ),
                 ),
                 Transform.scale(
-                    scale: 1.75,
+                    scale: sh / 5,
                     child: SizedBox(
-                      width: 100.0,
+                      width: mw,
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
@@ -542,34 +562,34 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 40,
-                    right: 40,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw,
+                    right: mw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 10,
-                    bottom: 10,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Altitude: ",
+                  child: Text("Altitude: ",
                     style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontSize: sh * 1.75,
+                          fontWeight: FontWeight.bold,
+                      ),
                   ),
                 ),
                 Transform.scale(
-                    scale: 1.75,
+                    scale: sh / 5,
                     child: SizedBox(
-                      width: 100.0,
+                      width: mw,
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
@@ -588,34 +608,34 @@ class _options extends State<options> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(
-                    left: 40,
-                    right: 40,
-                    top: 5,
-                    bottom: 5,
+                  padding: EdgeInsets.only(
+                    left: mw,
+                    right: mw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 20,
-                    right: 10,
-                    top: 10,
-                    bottom: 10,
+                  margin: EdgeInsets.only(
+                    left: sw,
+                    right: sw,
+                    top: sh / 1.5,
+                    bottom: sh / 1.5,
                   ),
                   decoration: BoxDecoration(
                     color: colors[colorIndex],
                     border: Border.all(color: Colors.black, width: 1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Text("Velocity: ",
+                  child: Text("Velocity: ",
                     style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
+                          fontSize: sh * 1.75,
+                          fontWeight: FontWeight.bold,
+                      ),
                   ),
                 ),
                 Transform.scale(
-                    scale: 1.75,
+                    scale: sh / 5,
                     child: SizedBox(
-                      width: 100.0,
+                      width: mw,
                       child: Checkbox(
                         checkColor: Colors.white,
                         fillColor: MaterialStateProperty.resolveWith(getColor),
@@ -631,19 +651,13 @@ class _options extends State<options> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(sh),
               child: Container(
                 child: Column(
                   children: [
                     ElevatedButton(onPressed: () {
                       Navigator.pop(context);
                     },
-                      child: Text(
-                          "Go back",
-                        style: TextStyle(
-                            color: Colors.black,
-                        ),
-                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: colors[colorIndex],
                         side: const BorderSide(
@@ -653,6 +667,13 @@ class _options extends State<options> {
                         elevation: 10,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                          "Go back",
+                        style: TextStyle(
+                            fontSize: sh * 1.75,
+                            color: Colors.black,
                         ),
                       ),
                     ),
