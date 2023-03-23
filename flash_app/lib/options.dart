@@ -29,7 +29,11 @@ class _options extends State<options> {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
-    sh = height / 70;
+    if (height < 400) {
+      sh = height / 50;
+    } else {
+      sh = height / 70;
+    }
     mh = height / 40;
     lh = height / 10;
     sw = width / 40;
@@ -116,8 +120,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -148,8 +152,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -180,8 +184,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -212,8 +216,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -249,8 +253,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -281,8 +285,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -313,8 +317,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -345,8 +349,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -375,7 +379,299 @@ class _options extends State<options> {
                 ),
               ],
             ),
-            Row(
+            height < 400
+                ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              Column(
+                children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: mw,
+                            right: mw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          margin: EdgeInsets.only(
+                            left: sw,
+                            right: sw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors[colorIndex],
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text("Compass: ",
+                            style: TextStyle(
+                              fontSize: sh * 1.75,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Transform.scale(
+                            scale: sh / 5,
+                            child: SizedBox(
+                              width: mw,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: compassChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    compassChecked = value!;
+                                  });
+                                },
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: mw,
+                            right: mw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          margin: EdgeInsets.only(
+                            left: sw,
+                            right: sw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors[colorIndex],
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text("Yaw: ",
+                            style: TextStyle(
+                              fontSize: sh * 1.75,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Transform.scale(
+                            scale: sh / 5,
+                            child: SizedBox(
+                              width: mw,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: yawChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    yawChecked = value!;
+                                  });
+                                },
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: mw,
+                            right: mw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          margin: EdgeInsets.only(
+                            left: sw,
+                            right: sw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors[colorIndex],
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text("Pitch: ",
+                            style: TextStyle(
+                              fontSize: sh * 1.75,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Transform.scale(
+                            scale: sh / 5,
+                            child: SizedBox(
+                              width: mw,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: pitchChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    pitchChecked = value!;
+                                  });
+                                },
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                Column (
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: mw,
+                            right: mw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          margin: EdgeInsets.only(
+                            left: sw,
+                            right: sw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors[colorIndex],
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text("Angle of Attack: ",
+                            style: TextStyle(
+                              fontSize: sh * 1.75,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Transform.scale(
+                            scale: sh / 5,
+                            child: SizedBox(
+                              width: mw,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: angleChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    angleChecked = value!;
+                                  });
+                                },
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: mw,
+                            right: mw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          margin: EdgeInsets.only(
+                            left: sw,
+                            right: sw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors[colorIndex],
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text("Altitude: ",
+                            style: TextStyle(
+                              fontSize: sh * 1.75,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Transform.scale(
+                            scale: sh / 5,
+                            child: SizedBox(
+                              width: mw,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: altChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    altChecked = value!;
+                                  });
+                                },
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: mw,
+                            right: mw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          margin: EdgeInsets.only(
+                            left: sw,
+                            right: sw,
+                            top: sh / 1.5,
+                            bottom: sh / 1.5,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors[colorIndex],
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text("Velocity: ",
+                            style: TextStyle(
+                              fontSize: sh * 1.75,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Transform.scale(
+                            scale: sh / 5,
+                            child: SizedBox(
+                              width: mw,
+                              child: Checkbox(
+                                checkColor: Colors.white,
+                                fillColor: MaterialStateProperty.resolveWith(getColor),
+                                value: velChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    velChecked = value!;
+                                  });
+                                },
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ):
+              Container(),
+            height >= 400
+                ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -397,10 +693,10 @@ class _options extends State<options> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text("Compass: ",
-                      style: TextStyle(
-                          fontSize: sh * 1.75,
-                          fontWeight: FontWeight.bold,
-                      ),
+                    style: TextStyle(
+                      fontSize: sh * 1.75,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Transform.scale(
@@ -420,8 +716,10 @@ class _options extends State<options> {
                     )
                 )
               ],
-            ),
-            Row(
+            ):
+            Container(),
+            height >= 400
+                ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -444,9 +742,9 @@ class _options extends State<options> {
                   ),
                   child: Text("Yaw: ",
                     style: TextStyle(
-                          fontSize: sh * 1.75,
-                          fontWeight: FontWeight.bold,
-                      ),
+                      fontSize: sh * 1.75,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Transform.scale(
@@ -466,8 +764,10 @@ class _options extends State<options> {
                     )
                 )
               ],
-            ),
-            Row(
+            ):
+            Container(),
+            height >= 400
+                ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -490,9 +790,9 @@ class _options extends State<options> {
                   ),
                   child: Text("Pitch: ",
                     style: TextStyle(
-                          fontSize: sh * 1.75,
-                          fontWeight: FontWeight.bold,
-                      ),
+                      fontSize: sh * 1.75,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Transform.scale(
@@ -512,8 +812,10 @@ class _options extends State<options> {
                     )
                 )
               ],
-            ),
-            Row(
+            ):
+            Container(),
+            height >= 400
+                ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -536,9 +838,9 @@ class _options extends State<options> {
                   ),
                   child: Text("Angle of Attack: ",
                     style: TextStyle(
-                          fontSize: sh * 1.75,
-                          fontWeight: FontWeight.bold,
-                      ),
+                      fontSize: sh * 1.75,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Transform.scale(
@@ -558,8 +860,10 @@ class _options extends State<options> {
                     )
                 )
               ],
-            ),
-            Row(
+            ):
+            Container(),
+            height >= 400
+                ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -582,9 +886,9 @@ class _options extends State<options> {
                   ),
                   child: Text("Altitude: ",
                     style: TextStyle(
-                          fontSize: sh * 1.75,
-                          fontWeight: FontWeight.bold,
-                      ),
+                      fontSize: sh * 1.75,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Transform.scale(
@@ -604,8 +908,10 @@ class _options extends State<options> {
                     )
                 )
               ],
-            ),
-            Row(
+            ):
+            Container(),
+            height >= 400
+                ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
@@ -628,9 +934,9 @@ class _options extends State<options> {
                   ),
                   child: Text("Velocity: ",
                     style: TextStyle(
-                          fontSize: sh * 1.75,
-                          fontWeight: FontWeight.bold,
-                      ),
+                      fontSize: sh * 1.75,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Transform.scale(
@@ -650,9 +956,15 @@ class _options extends State<options> {
                     )
                 )
               ],
-            ),
+            ):
+            Container(),
             Padding(
-              padding: EdgeInsets.all(sh),
+              padding: EdgeInsets.only(
+                left: mw,
+                right: mw,
+                top: sh / 1.5,
+                bottom: sh / 1.5,
+              ),
               child: Container(
                 child: Column(
                   children: [
