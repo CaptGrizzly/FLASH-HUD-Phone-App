@@ -115,8 +115,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -147,8 +147,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -179,8 +179,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -211,8 +211,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -248,8 +248,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -280,8 +280,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -312,8 +312,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -344,8 +344,8 @@ class _options extends State<options> {
                   padding: EdgeInsets.only(
                     left: sw,
                     right: sw,
-                    top: sh,
-                    bottom: sh,
+                    top: sh / 2,
+                    bottom: sh / 2,
                   ),
                   child: SizedBox(
                     width: mh * 3,
@@ -651,7 +651,12 @@ class _options extends State<options> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(sh),
+              padding: EdgeInsets.only(
+                left: mw,
+                right: mw,
+                top: sh / 1.5,
+                bottom: sh / 1.5,
+              ),
               child: Container(
                 child: Column(
                   children: [

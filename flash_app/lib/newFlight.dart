@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 import 'home.dart';
 import 'options.dart';
@@ -12,14 +13,13 @@ class _newFlight extends State<newFlight> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Container(
             child: Column(
               children: [
-                Text("Enjoy",style: TextStyle(fontSize: 30),),
+                Text("https://www.youtube.com/watch?v=dQw4w9WgXcQ",style: TextStyle(fontSize: 30),),
                 ElevatedButton(onPressed: () {
                   Navigator.pop(context);
                 },
