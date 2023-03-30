@@ -163,8 +163,7 @@ class _homeState extends State<home> {
         // True condition
             ? ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Colors.grey, // background
-            onPrimary: Colors.white, // foreground
+            foregroundColor: Colors.white, backgroundColor: Colors.grey, // foreground
           ),
           onPressed: () {},
           child: const Icon(Icons.search),
@@ -172,8 +171,7 @@ class _homeState extends State<home> {
         // False condition
             : ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Colors.blue, // background
-            onPrimary: Colors.white, // foreground
+            foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
           ),
           onPressed: startScan,
           child: const Icon(Icons.search),
@@ -182,7 +180,7 @@ class _homeState extends State<home> {
         // True condition
             ? ElevatedButton(
           style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white, primary: Colors.blue, // foreground
+            foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
           ),
           onPressed: connectToDevice,
           child: const Icon(Icons.bluetooth),
@@ -190,7 +188,7 @@ class _homeState extends State<home> {
         // False condition
             : ElevatedButton(
           style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white, primary: Colors.grey, // foreground
+            foregroundColor: Colors.white, backgroundColor: Colors.grey, // foreground
           ),
           onPressed: () {},
           child: const Icon(Icons.bluetooth),
@@ -199,7 +197,7 @@ class _homeState extends State<home> {
         // True condition
             ? ElevatedButton(
           style: ElevatedButton.styleFrom(
-            foregroundColor: Colors.white, primary: Colors.blue, // foreground
+            foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
           ),
           onPressed: partyTime,
           child: const Icon(Icons.celebration_rounded),
